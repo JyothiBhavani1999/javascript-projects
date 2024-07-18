@@ -8,7 +8,19 @@
 // 4. Below the function, define and initialize a variable to hold a string.
 // 5. Use console.log(reverseCharacters(myVariableName)); to call the function and verify that it correctly reverses the characters in the string.
 // 6. Optional: Use method chaining to reduce the lines of code within the function.
+    function reverseCharacters(variable){
+        if(typeof variable === 'string'){
+            return variable.split('').reverse().join('');
+        }
 
+        else {
+            let reveredString = String(variable).split('').reverse().join('');
+            return Number(reveredString);
+            }
+    }
+
+    //myVariableName = 'radar';
+    //console.log(reverseCharacters(myVariableName));
 // Part Two: Reverse Digits
 
 // 1. Add an if statement to reverseCharacters to check the typeof the parameter.
@@ -30,6 +42,20 @@ let arrayTest1 = ['apple', 'potato', 'Capitalized Words'];
 let arrayTest2 = [123, 8897, 42, 1168, 8675309];
 let arrayTest3 = ['hello', 'world', 123, 'orange'];
 
+
+function completeReversal(inputArray){
+    let finalArray = [];
+    for(let i =0;i<inputArray.length;i++)
+        {
+            finalArray.push(reverseCharacters(inputArray[i]));
+        }
+    return finalArray.reverse();
+}
+
+console.log(completeReversal(arrayTest1));
+
+
+
 // Bonus Missions
 
 // 1. Have a clear, descriptive name like funPhrase.
@@ -37,10 +63,26 @@ let arrayTest3 = ['hello', 'world', 123, 'orange'];
 // 3. Retrieve only the first 3 characters from strings with lengths larger than 3.
 // 4. Use a template literal to return the phrase We put the '___' in '___'. Fill the first blank with the modified string, and fill the second blank with the original string.
 
-// Test Function
+function funPhrase(inputString){
+    if(inputString.length <= 3)
+    {
+        let lastChar = inputString[inputString.length - 1];
+        return lastChar;
+    }
+    else{
+
+        let first3Chars= inputString.slice(0,3);
+        return first3Chars;
+    }
+}
+
 
 // 1. Outside of the function, define the variable str and initialize it with a string (e.g. 'Functions rock!').
-// 2. Call your function and print the returned phrase.
+// 2. Call your function and print the returned phrase
+let str = 'Functions rock!';
+funPhrase(str);
+console.log(`We put the ${funPhrase(str)} in ${str}.`);
+// Test Function
 
 // Area of rectangle equal to length x width
 
@@ -49,3 +91,21 @@ let arrayTest3 = ['hello', 'world', 123, 'orange'];
 // 3. Call your area function by passing in two arguments - the length and width.
 // 4. If only one argument is passed to the function, then the shape is a square. Modify your code to deal with this case.
 // 5. Use a template literal to print, “The area is ____ cm^2.”
+
+function areaOfRectangle(length, width=null){
+    let area;
+    if(width === null)
+        {
+            width = length
+            area = length * width;
+        }
+    else {
+        area = length * width;
+        }
+   return area;
+}
+let  length = 20;
+let width;
+console.log(`The area is ${areaOfRectangle(length,width)} cm^2.`);
+
+

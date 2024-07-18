@@ -33,7 +33,8 @@ console.log("Hold status: " + holdStatus(cargoHold));
 
 //c). Once you figure out how much fuel to pump out, return that value.
 
-//d). Decide where to best place your function call to gather our new fuel.
+//d). Decide where to best place your function call to gather our new fuel. 
+ 
 
 /* Next, liberate some of that glorious cargo.
  * /
@@ -53,5 +54,26 @@ console.log("Hold status: " + holdStatus(cargoHold));
 	
 //b). Call your anonymous fuel and cargo functions from within irs.
 
-//c). Use a template literal to return, "Raided _____ kg of fuel from the tanks, and stole ____ and ____ from the cargo hold."
+//c). Use a template literal to return, "Raided _____ kg of fuel from the tanks, and stole ____ and ____ from the cargo hold." */
+
+let level = function(a){
+  if(checkFuel(a) === 'green')
+    return a - 100001;
+  else if(checkFuel(a) === 'yellow')
+    return a - 50001;
+return a;
+} 
+console.log(level(fuelLevel));
+
+let innocent = function(arr){
+        return arr.slice(0,3).concat(arr.slice(5)).concat(['trash', 'trash2']);
+      
+}
+
+console.log(innocent(cargoHold));
+
+
+let irs = function(level, innocent) {
+  return `Raided ${level} kg of fuel from the tanks, and stole ${innocent[5]} and ${innocent[6]} from the cargo hold.`;
+}
 
